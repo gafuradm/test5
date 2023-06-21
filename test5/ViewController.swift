@@ -8,9 +8,30 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let button: UIButton = {
+        let button = UIButton()
+        button.setTitle("Tap Me", for: .normal)
+        button.configuration = .filled()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        setupScene()
+        makeConstraints()
     }
 }
+private extension ViewController {
+    func setupScene() {
+        view.addSubview(button)
+    }
+    
+    func makeConstraints() {
+        button.translatesAutoresizingMaskIntoConstraints = false
 
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+}
