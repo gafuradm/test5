@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Tap Me", for: .normal)
         button.configuration = .filled()
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -33,5 +34,10 @@ private extension ViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+}
+@objc private extension ViewController {
+    func buttonTapped() {
+        print("Button was tapped.")
     }
 }
